@@ -1,0 +1,31 @@
+// Tutorial 1
+rake db:schema:dump
+rails generate model User
+rake db:migrate
+
+to reverse back (rake db:migrate VERSION=0)
+to see status (rake db:migrate:status)
+
+// Tutorial 2
+rails new spblog -d mysql
+bundle install
+
+mysql:
+	grant all privileges on spblog to 'sbadmin'@'localhost' identified by 'password'
+	mysql5 -u sbadmin -p
+
+rails generate scaffold User password:string email:string
+rake db:migrate
+rake routes
+rails generate scaffold Article title:string post:text user_id:integer
+rake db:migrate
+rails generate model Comment commenter:string body:text article:references
+rake db:migrate
+rails generate controller Comment
+rails destroy controller comment
+rails generate controller Comments
+
+// Tutorial 3
+rails generate controller pages home about
+
+rake test (to test)
